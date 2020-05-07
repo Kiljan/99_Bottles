@@ -3,18 +3,19 @@ package prolog_lists;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.Random;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Find_element_of_a_list {
 
 	// Bottel 01
-	public static <T> String findLastElement(List<T> list)
+	public <T> String findLastElement(List<T> list)
 	{
 		String resoult = null;
 		List<T> mainList = list;
@@ -33,7 +34,7 @@ public class Find_element_of_a_list {
 	}
 	
 	// Bottel 02
-	public static <T> String findLastButOneElement(List<T> list)
+	public <T> String findLastButOneElement(List<T> list)
 	{
 		String resoult = null;
 		List<T> mainList = list;
@@ -53,7 +54,7 @@ public class Find_element_of_a_list {
 	}
 	
 	// Bottle 03
-	public static <T> String findThe_K_Element(List<T> list, Integer elementK) 
+	public <T> String findThe_K_Element(List<T> list, Integer elementK) 
 	{
 		String resoult = null;
 		
@@ -70,7 +71,7 @@ public class Find_element_of_a_list {
 	}
 	
 	// Bottle 04
-	public static <T> String findTheNumberOfElements(List<T> list)
+	public <T> String findTheNumberOfElements(List<T> list)
 	{
 		String resoult = null;
 		long lg = 0;
@@ -82,7 +83,7 @@ public class Find_element_of_a_list {
 	}
 	
 	// Bottle 05
-	public static <T> List<T> reverseList(List<T> list)
+	public <T> List<T> reverseList(List<T> list)
 	{
 		List<T> resoult = list;
 		Collections.reverse(resoult);
@@ -90,7 +91,7 @@ public class Find_element_of_a_list {
 	}
 	
 	// Bottel 06
-	public static <T> boolean  ifListIsaPalindrome(List<T> list) 
+	public <T> boolean  ifListIsaPalindrome(List<T> list) 
 	{
 		int size = list.size() - 1;
 		
@@ -109,7 +110,7 @@ public class Find_element_of_a_list {
 	}
 	
 	// Bottle 07 
-	public static <T> List<T> flattenNestedListStructure(List<List<T>> list)
+	public <T> List<T> flattenNestedListStructure(List<List<T>> list)
 	{
 		return list.stream()
 				.flatMap(s -> s.stream())
@@ -117,7 +118,7 @@ public class Find_element_of_a_list {
 	}
 	
 	// Bottle 08
-	public static <T> List<T> eliminateConsecutiveDuplicates(List<T> list)
+	public <T> List<T> eliminateConsecutiveDuplicates(List<T> list)
 	{
 		return list.stream()
 				.distinct()
@@ -125,7 +126,7 @@ public class Find_element_of_a_list {
 	}
 	
 	// Bottle 09
-	public static <T> List<List<T>> packIntoSublists(List<T> list)
+	public <T> List<List<T>> packIntoSublists(List<T> list)
 	{	
 		// checking function
 		Function<List<T>, Map<T, Integer>> checkOccurrences = x -> 
@@ -158,7 +159,7 @@ public class Find_element_of_a_list {
 	}
 	
 	// Bottle 10
-	public static <T> List<List<String>> runListLengthEncoding(List<T> list)
+	public <T> List<List<String>> runListLengthEncoding(List<T> list)
 	{
 		// checking function
 		Function<List<T>, Map<T, Integer>> checkOccurrences = x -> 
@@ -186,7 +187,7 @@ public class Find_element_of_a_list {
 	}
 	
 	// Bottle 11 == Bottle 13
-	public static <T> List<List<String>> modRunListLengthEncoding(List<T> list)
+	public <T> List<List<String>> modRunListLengthEncoding(List<T> list)
 	{
 		// checking function
 		Function<List<T>, Map<T, Integer>> checkOccurrences = x -> 
@@ -224,7 +225,7 @@ public class Find_element_of_a_list {
 	
 	// Bottle 12
 	@SuppressWarnings("unchecked")
-	public static <T> List<T>  decodeRunLength(List<List<T>> list)
+	public <T> List<T>  decodeRunLength(List<List<T>> list)
 	{
 		List<T> resoult = new ArrayList<>();
 		
@@ -243,7 +244,7 @@ public class Find_element_of_a_list {
 	}
 	
 	// Bottle 14
-	public static <T> List<T> duplicateElements(List<T> list)
+	public <T> List<T> duplicateElements(List<T> list)
 	{
 		List<T> resoult = (List<T>) list.stream()
 				.map(x -> Collections.nCopies(2, x))
@@ -254,7 +255,7 @@ public class Find_element_of_a_list {
 	}
 	
 	// Bottle 15
-	public static <T> List<T> duplicateElementsGivenNumberOfTimes(List<T> list, Integer repTimes)
+	public <T> List<T> duplicateElementsGivenNumberOfTimes(List<T> list, Integer repTimes)
 	{
 		List<T> resoult = (List<T>) list.stream()
 				.map(x -> Collections.nCopies(repTimes, x))
@@ -266,7 +267,7 @@ public class Find_element_of_a_list {
 	
 	// Bottle 16
 	// In this case a simpler solution did not require the use of streams ()
-	public static <T> List<T> dropChosenElement(List<T> list, Integer elementDropped)
+	public <T> List<T> dropChosenElement(List<T> list, Integer elementDropped)
 	{
 		List<T> resoult = new ArrayList<>();
 		
@@ -275,6 +276,160 @@ public class Find_element_of_a_list {
 			if((list.indexOf(t) + 1) % elementDropped != 0)
 				resoult.add(t);
 		}
+		
+		return resoult;
+	}
+	
+	// Bottle 17
+	public <T> List<List<T>> splitList(List<T> list, 
+			Integer lengthFirst)
+	{
+		if(list.size() < lengthFirst)
+			return null;
+		
+		List<T> one = new ArrayList<>();
+		List<T> two = new ArrayList<>();
+		List<List<T>> resoult = new ArrayList<>();
+		int count = 0;
+		
+		for(T t : list)
+		{
+			if(count < lengthFirst)
+			{
+				one.add(t);
+				count++;
+			} else
+			{
+				two.add(t);
+			}
+				
+		}
+		
+		resoult.add(one);
+		resoult.add(two);
+		
+		return resoult;
+	}
+	
+	// Bottle 18
+	public <T> List<T> sliceList(List<T> list,
+			int start, int stop)
+	{
+		if(list.size() < start || list.size() < stop)
+			return null;
+		
+		List<T> resoult = new ArrayList<>();
+		int count = 1;
+		
+		for(T t : list)
+		{
+			if(count >= start && count <= stop)
+				resoult.add(t);
+			count++;
+		}
+		
+		return resoult;
+	}
+	
+	// Bottle 19
+	public <T> List<T> rotateList (List<T> list, int n)
+	{
+		List<T> resoult = new ArrayList<>();
+		resoult.addAll(list);
+		int length = resoult.size() - 1;
+		
+		if(n > 0) 
+		{
+			for(int i = 0; i < n; i++)
+			{
+				T temp = resoult.get(0);
+				
+				for(int j = 0; j < length; j++)
+				{
+					resoult.set(j, resoult.get(j + 1));
+				}
+				resoult.set(length, temp);
+			}
+		} else if (n < 0)
+		{
+			for(int i = 0; i > n; i--)
+			{
+				T temp = resoult.get(length);
+				
+				for(int j = length; j > 0; j--)
+				{
+					resoult.set(j, resoult.get(j - 1));
+				}
+				resoult.set(0, temp);
+			}
+		} 		
+		return resoult;
+	}
+	
+	// Bottle 20
+	public <T> List<T> removeElement(List<T> list, int remPos)
+	{
+		List<T> resoult = new LinkedList<>();
+		resoult.addAll(list);
+		resoult.remove(remPos);
+		
+		return resoult;
+	}
+	
+	// Bottle 21
+	public <T> List<T> insertElement(List<T> list, T element, int insPos)
+	{
+		List<T> resoult = new LinkedList<>();
+		resoult.addAll(list);
+		resoult.add(insPos, element);
+		
+		return resoult;
+	}
+	
+	// Bottle 22
+	public List<Integer> integersWithinRange (int start, int stop)
+	{
+		List<Integer> resoult = new ArrayList<>();
+		
+		for(int i = start; i <= stop; i++)
+		{
+			resoult.add(i);
+		}
+		
+		return resoult;
+	}
+	
+	// Bottle 23
+	public <T> List<T> randomlySelectedElements(List<T> list, Integer num)
+	{
+		List<T> toShuffle = list;
+		Collections.shuffle(toShuffle);
+		List<T> resoult = toShuffle.stream()
+							.limit(num)
+							.collect(Collectors.toList());
+		return resoult;
+	}
+	
+	// Bottle 24
+	public List<Integer> lotto(int numberOfnum, int maxIntValue)
+	{
+		List<Integer> resoult = new ArrayList<>();
+		Random ran = new Random();
+		
+		for(int i = 0; i < numberOfnum; i++)
+		{
+			resoult.add(ran.nextInt(maxIntValue + 1));
+		}
+		return resoult;
+	}
+	
+	// Bottle 25
+	public <T> List<T> randomPermutation(List<T> list)
+	{
+		List<T> resoult = new ArrayList<>();
+		resoult.addAll(list);
+		for(int i = 0; i < 2; i++)
+			Collections.shuffle(resoult);
 		
 		return resoult;
 	}

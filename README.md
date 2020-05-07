@@ -18,5 +18,4 @@ These are the basic tests written in JUnit4 to check the basic assumptions of th
 
 ## Kind of right changes
 * __Bottle 09, Bottle 10, Bottle 11, Bottle 12, Bottle 13__<br> collects information about all duplicates. Uses function interface and map of all elements. __Bottle 13 == Bottle 11__
-* __Bottle 16__ without streams is definitely simpler
 * cdn..
