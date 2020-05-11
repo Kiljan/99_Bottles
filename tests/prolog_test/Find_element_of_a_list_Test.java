@@ -312,28 +312,17 @@ public class Find_element_of_a_list_Test {
 		//actualString.forEach(System.out::println);
 	}
 	
+	// Bottle 26
+	@Test
+	public void generate_the_combinations_of_K_distinct_objects_chosen_from_the_N_elements_of_a_list()
+	{
+		actualInteger2D = spy.combinationsDistinctObjects(c2, 3);
+		actualInteger2D.forEach(System.out::println);
+	}
 	
+	// Bottle 27 and 28
+		/*
+		 * No simple solution exist.
+		 * For now moving on.
+		 * */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -433,6 +433,30 @@ public class Find_element_of_a_list {
 		
 		return resoult;
 	}
+	
+	// Bottle 26 
+	public <T> List<List<T>> combinationsDistinctObjects(List<T> list, int arnum)
+	{
+		List<List<T>> resoult = new ArrayList<List<T>>();
+		List<T> container = new ArrayList<T>();
+		container = list;
+		
+		for(int i = 0; i < arnum; i++)
+		{
+			Collections.shuffle(container);
+			resoult.add(container.stream()
+					.limit(arnum)
+					.collect(Collectors.toList()));
+		}
+		
+		return resoult;
+	}
+	
+	// Bottle 27 and 28
+	/*
+	 * No simple solution exist.
+	 * For now moving on.
+	 * */
 }
 
 
