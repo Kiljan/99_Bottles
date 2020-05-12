@@ -119,5 +119,70 @@ public class Arithmetic {
 		return resoult;
 	}
 	
+	// Bottle 35
+	public Integer greatest_common_divisor(int f, int s) 
+	{
+		List<Integer> firstCollect = new ArrayList<>();
+		List<Integer> secondCollect = new ArrayList<>();
+		List<Integer> resoults = new ArrayList<>();
+		Integer greatest;
+		
+		firstCollect = IntStream
+				.range(1, f + 1)
+				.filter(x -> f%x == 0)
+				.boxed()
+				.collect(Collectors.toList());
+		
+		secondCollect = IntStream
+				.range(1, s + 1)
+				.filter(x -> s%x == 0)
+				.boxed()
+				.collect(Collectors.toList());
+		
+		resoults = firstCollect.stream()
+				.distinct()
+				.filter(secondCollect::contains)
+				.collect(Collectors.toList());
+		
+		greatest = resoults.stream()
+				.max(Integer::compare)
+				.get();
+		
+		return greatest;
+	}
+	
+	//Bottel 36
+	public Boolean coprime(int f, int s)
+	{
+		List<Integer> firstCollect = new ArrayList<>();
+		List<Integer> secondCollect = new ArrayList<>();
+		List<Integer> resoults = new ArrayList<>();
+		Boolean coprime = false;
+		
+		firstCollect = IntStream
+				.range(1, f)
+				.filter(x -> f%x == 0)
+				.boxed()
+				.collect(Collectors.toList());
+		
+		secondCollect = IntStream
+				.range(1, s)
+				.filter(x -> s%x ==0 )
+				.boxed()
+				.collect(Collectors.toList());
+		
+		resoults = firstCollect.stream()
+				.distinct()
+				.filter(secondCollect::contains)
+				.collect(Collectors.toList());
+		
+		if(resoults.size() == 1 && resoults.get(0).equals(1))
+		{
+			coprime = true;
+		}
+		
+		return coprime;
+	}
+	
 
 }

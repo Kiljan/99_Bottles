@@ -17,6 +17,8 @@ public class Arithmetic_test
 	private Arithmetic ar;	
 	private List<Integer> prime;
 	
+	private Integer actualI;
+	private Boolean actualB;
 	private List<Integer> actual;
 	private List<List<Integer>> actual2D;
 	
@@ -85,5 +87,22 @@ public class Arithmetic_test
 		actual = ar.goldbachCompositions(9, 20);
 		List<Integer> expected = Arrays.asList(3,7,5,7,3,11,3,13,5,13,3,17);
 		assertEquals(expected, actual);
+	}
+	
+	// Bottle 35
+	@Test
+	public void determine_the_greatest_common_divisor_of_two_positive_integer_numbers()
+	{
+		actualI = ar.greatest_common_divisor(54, 24);
+		Integer expected = 6;
+		assertEquals(expected, actualI);
+	}
+	
+	// Bottle 36
+	@Test
+	public void determine_whether_two_positive_integer_numbers_are_coprime()
+	{
+		actualB = ar.coprime(35, 66);
+		assertTrue(actualB);
 	}
 }
