@@ -160,13 +160,13 @@ public class Arithmetic {
 		Boolean coprime = false;
 		
 		firstCollect = IntStream
-				.range(1, f)
+				.range(1, f+1)
 				.filter(x -> f%x == 0)
 				.boxed()
 				.collect(Collectors.toList());
 		
 		secondCollect = IntStream
-				.range(1, s)
+				.range(1, s+1)
 				.filter(x -> s%x ==0 )
 				.boxed()
 				.collect(Collectors.toList());
@@ -184,5 +184,26 @@ public class Arithmetic {
 		return coprime;
 	}
 	
-
+	// Bottle 37 and 38 and 39
+	public Integer eulerTotientFunction(int m)
+	{
+		if(m == 1)
+			return 1;
+		
+		List<Integer> areCoprime = new ArrayList<>();
+		Integer resoult = 1;
+		
+		for(int i = 0; i < m; i++)
+		{
+			if(coprime(i, m))
+			{
+				areCoprime.add(i);
+			}
+		}
+		
+		resoult = (int) areCoprime.stream()
+				.count();
+		
+		return resoult;
+	}
 }

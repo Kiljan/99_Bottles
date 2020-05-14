@@ -102,7 +102,16 @@ public class Arithmetic_test
 	@Test
 	public void determine_whether_two_positive_integer_numbers_are_coprime()
 	{
-		actualB = ar.coprime(35, 66);
-		assertTrue(actualB);
+		actualB = ar.coprime(54, 24);
+		assertFalse(actualB);
+	}
+	
+	// Bottle 37 and 38 and 39
+	@Test
+	public void calculate_Euler_s_totient_function()
+	{
+		actualI = ar.eulerTotientFunction(10);
+		Integer expected = 4;
+		assertEquals(expected, actualI);
 	}
 }
